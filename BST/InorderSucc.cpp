@@ -40,7 +40,7 @@ int main ()
     root->left->left   = newNode(1); 
     struct node* key =  root->right;;
     struct node* tmp = inorderSucc(root, key);  
-    std::cout<<std::endl<<" Inorder successer is : "<<tmp->data<<std::endl;
+    std::cout<<std::endl<<" Inorder successor is : "<<tmp->data<<std::endl;
     
     deleteTree(root);  
 return 0;
