@@ -56,26 +56,25 @@ using namespace std;
 void processQueries(int query[], int nq, bitset<MAXSUM> bit)
 {
 	// One by one process subset sum queries
-	for (int i=0; i<nq; i++)
-	{
-	int x = query[i];
+	for (int i=0; i<nq; i++) {
+		int x = query[i];
 
-	// If x is beyond size of bit[]
-	if (x >= MAXSUM)
-	{
-		cout << "NA, ";
-		continue;
-	}
+		// If x is beyond size of bit[]
+		if (x >= MAXSUM) {
+			cout << "NA, ";
+			continue;
+		}
 
-	// Else if x is a subset sum, then x'th bit
-	// must be set
-	bit[x]? cout << "Yes, " : cout << "No, ";
+		// Else if x is a subset sum, then x'th bit
+		// must be set
+		bit[x]? cout << "Yes, " : cout << "No, ";
 	}
 }
 void printArr( bitset<MAXSUM> &bit, int n )
 {
-    for (int i = n-1; i >=0; --i)
+    for (int i = n-1; i >=0; --i) {
         std::cout<<bit[i];
+    }
     std::cout<<std::endl;
 }
 
@@ -89,8 +88,7 @@ void preprocess(bitset<MAXSUM> &bit, int arr[], int n)
 	bit[0] = 1;
 
 	// Process all array elements one by one
-	for (int i = 0; i < n; ++i)
-    {
+	for (int i = 0; i < n; ++i) {
 		// Do OR of following two
 		// 1) All previous sums. We keep previous value
 		// of bit.
@@ -99,8 +97,8 @@ void preprocess(bitset<MAXSUM> &bit, int arr[], int n)
 		std::cout<<"before: "<<arr[i]<<"  "<<bit<<std::endl;
 		bit |= (bit << arr[i]);
 		std::cout<<"after: "<<arr[i]<<"  "<<bit<<std::endl;
-        //printArr(bit, n);
-    }
+        	//printArr(bit, n);
+    	}
 }
 
 // Driver program
